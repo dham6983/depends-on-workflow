@@ -9,7 +9,7 @@ on:
 
 jobs:
 
-  Run Post processing Job:
+  Run_Post_Processing_Job:
 
     runs-on: ubuntu-latest
 
@@ -21,8 +21,8 @@ jobs:
         run: |
           echo "Running reusable workflow from resusable repo"
 
-  Run Validate Job:
-    needs : Run Post processing Job
+  Run_Validate_Job:
+    needs : Run_Post_Processing_Job
     runs-on: ubuntu-latest
 
     steps:
