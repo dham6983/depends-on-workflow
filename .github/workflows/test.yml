@@ -17,9 +17,16 @@ jobs:
 
       - uses: actions/checkout@v3
 
-      - name: Write the purpose
+      - name: Run Post Processing Task
         run: |
           echo "Running Run_Post_Processing_Job"
+          echo ${{ github.ref_name }} 
+          if [[ ${{ github.ref_name }} ~= .*"loc_staging" ]]; then
+            echo "Running Preprocessing"
+          else
+            echo "Not Running Preprocessing"
+          fi
+
 
   Run_Validate_Job:
     needs : Run_Post_Processing_Job
@@ -29,8 +36,7 @@ jobs:
 
       - uses: actions/checkout@v3
 
-      - name: Write the purpose
+      - name: Run Yarn Validate Task
         run: |
           echo "Run_Validate_Job"
-          #if [[ ${github.ref_name} ~= "refs/heads" ]]
-          echo ${{ github.ref_name }}
+          
