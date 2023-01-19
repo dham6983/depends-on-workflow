@@ -22,7 +22,7 @@ jobs:
           echo "Running reusable workflow from resusable repo"
 
   Run Validate Job:
-  needs : Run Post processing Job
+    needs : Run Post processing Job
     runs-on: ubuntu-latest
 
     steps:
