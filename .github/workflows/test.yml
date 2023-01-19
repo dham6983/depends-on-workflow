@@ -21,7 +21,7 @@ jobs:
         run: |
           echo "Running Run_Post_Processing_Job"
           echo ${{ github.ref_name }} 
-          if [[ ${{ github.ref_name }} ~= .*"loc_staging" ]]; then
+          if [[ ${{ github.ref_name }} ~= .*"loc_staging".* ]]; then
             echo "Running Preprocessing"
           else
             echo "Not Running Preprocessing"
